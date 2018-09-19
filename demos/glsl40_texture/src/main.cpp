@@ -98,8 +98,6 @@ void mainLoop()
 		// SETA AS COORDENADAS DO MOUSE + MOVIMENTO
 		plane->setMouse(X + time * 0.00314, Y + balance);
 
-
-
 		thisTime = glfwGetTime();
 		plane->update(thisTime - lastTime);
 		lastTime = thisTime;
@@ -138,7 +136,8 @@ void initGLFW()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "alo eletronic arts", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "PRESS: (R) - Parar tremor, (P) - Aumentar tamanho da luneta, (O) - Diminuir o tamanho da luneta", NULL, NULL);
+
 	if (!window)
 	{
 		fprintf(stderr, "Failed to open GLFW window.\n");
@@ -233,6 +232,11 @@ int main(void)
 
 	plane = new Plane(window, 1);
 	plane->init();
+
+	cout << "'R' - Parar tremor da mira!" << endl;
+	cout << "'P' - Aumentar tamanho da luneta!" << endl;
+	cout << "'O' - Diminuir o tamanho da luneta!" << endl;
+
 
 	mainLoop();
 
